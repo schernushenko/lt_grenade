@@ -149,12 +149,12 @@ static int protothreadExplode(struct pt *pt) {
 		unsigned long data;
 		data = 0b100000110000000011101000;
 		
-		init_ir_out();
+		//init_ir_out();
 		for (int i = 1; i < 4; i++) {
 			redInd(true);
 			piezo(true);
-			//sendSony(data, 24);
-			send_ir_package(data, 24);
+			sendSony(data, 24);
+			//send_ir_package(data, 24);
 			_delay_ms(200);
 			redInd(false);
 			piezo(false);
@@ -334,7 +334,7 @@ int main(void)
 
 	setup(); 
 	
-	//mainCycle();
-	testIR();
+	mainCycle();
+	//testIR();
 	
 }
